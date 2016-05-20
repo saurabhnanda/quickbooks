@@ -1,15 +1,13 @@
 name:                quickbooks
 version:             0.5.0.1
 synopsis:            QuickBooks API binding.
--- description:
 license:             BSD3
 license-file:        LICENSE
-author:              Juan Villa
-maintainer:          jvilla@stackbuilders.com
-copyright:           plowtechnologies
+author:              Stack Builders
+maintainer:          hackage@stackbuilders.com
+copyright:           Plow Technologies
 category:            Web
 build-type:          Simple
--- extra-source-files:
 cabal-version:       >=1.10
 
 description: This package is a binding to the QuickBooks API. The
@@ -54,7 +52,7 @@ description: This package is a binding to the QuickBooks API. The
 
 source-repository head
   type:     git
-  location: https://github.com/plow-technologies/quickbooks
+  location: https://github.com/stackbuilders/quickbooks
 
 library
   exposed-modules:     QuickBooks
