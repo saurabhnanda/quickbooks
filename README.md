@@ -1,7 +1,7 @@
 quickbooks
 ==========
 
-[![Circle CI](https://circleci.com/gh/plow-technologies/quickbooks.svg?style=svg&circle-token=d573550f3617f3cede51f39d9c58125c0644aecc)](https://circleci.com/gh/plow-technologies/quickbooks)
+[![CircleCI](https://circleci.com/gh/stackbuilders/quickbooks.svg?style=svg)](https://circleci.com/gh/stackbuilders/quickbooks)
 
 A QuickBooks API binding for Haskell
 
