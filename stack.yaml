@@ -1,1 +1,4 @@
-resolver: lts-5.17
+resolver: lts-12.1
+
+extra-deps:
+- thyme-0.3.5.5
