@@ -15,11 +15,10 @@ import Control.Monad (void, liftM, ap)
 import Data.Monoid ((<>))
 import qualified Data.ByteString.Lazy as BSL
 import Data.ByteString.Char8 (unpack, ByteString)
-import Network.HTTP.Client (Manager
-                           ,Request(..)
+import Network.HTTP.Client (Request(..)
                            ,RequestBody(RequestBodyLBS)
                            ,responseBody
-                           ,parseUrl
+                           ,parseUrlThrow
                            ,httpLbs)
 import Network.HTTP.Types.URI (parseSimpleQuery)
 import Web.Authenticate.OAuth (signOAuth
@@ -53,7 +52,7 @@ disconnectRequest :: AppEnv
                   => OAuthToken
                   -> IO (Either String (QuickBooksResponse ()))
 disconnectRequest tok = do
-  req  <- parseUrl $ disconnectURL
+  req  <- parseUrlThrow $ disconnectURL
   req' <- oauthSignRequest tok req
   void $ httpLbs req' ?manager
   logAPICall' req'
@@ -66,7 +65,7 @@ getTokens :: AppEnv
           -> ((?appConfig :: AppConfig) => Request -> IO Request) -- ^ Signing function
           -> IO (Maybe OAuthToken)
 getTokens tokenURL parameterName parameterValue signRequest = do
-  request  <- parseUrl $ concat [tokenURL, parameterName, parameterValue]
+  request  <- parseUrlThrow $ concat [tokenURL, parameterName, parameterValue]
   request' <- signRequest request { method="POST", requestBody = RequestBodyLBS "" }
   response <- httpLbs request' ?manager
   logAPICall' request'

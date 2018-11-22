@@ -41,7 +41,7 @@ queryCustomerRequest :: APIEnv
                      -> IO (Either String (QuickBooksResponse [Customer]))
 queryCustomerRequest tok queryCustomerName = do
   let apiConfig = ?apiConfig
-  let queryURI = parseUrl [i|#{queryURITemplate apiConfig}#{query}|]
+  let queryURI = parseUrlThrow [i|#{queryURITemplate apiConfig}#{query}|]
   req <- oauthSignRequest tok =<< queryURI
   let oauthHeaders = requestHeaders req
   let req' = req { method = "GET"
