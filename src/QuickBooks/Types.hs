@@ -356,15 +356,15 @@ data WebSiteAddress = WebAddress
 
 data PhysicalAddress = PhysicalAddress
   { physicalAddressId                     :: !Text
-  , physicalAddressLine1                  :: !Text
+  , physicalAddressLine1                  :: !(Maybe Text)
   , physicalAddressLine2                  :: !(Maybe Text)
   , physicalAddressLine3                  :: !(Maybe Text)
   , physicalAddressLine4                  :: !(Maybe Text)
   , physicalAddressLine5                  :: !(Maybe Text)
-  , physicalAddressCity                   :: !Text
+  , physicalAddressCity                   :: !(Maybe Text)
   , physicalAddressCountry                :: !(Maybe Text)
-  , physicalAddressCountrySubDivisionCode :: !Text
-  , physicalAddressPostalCode             :: !Text
+  , physicalAddressCountrySubDivisionCode :: !(Maybe Text)
+  , physicalAddressPostalCode             :: !(Maybe Text)
   , physicalAddressNote                   :: !(Maybe Text)
   , physicalAddressLat                    :: !(Maybe Text)
   , physicalAddressLong                   :: !(Maybe Text)
